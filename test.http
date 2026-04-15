@@ -1,0 +1,64 @@
+POST http://localhost:8080/api/submissions
+Content-Type: application/json
+
+{
+  "name": "Ruth",
+  "message": "Bonjour"
+}
+
+
+
+HTTP/1.1 200  - OK
+vary: Origin, Access-Control-Request-Method, Access-Control-Request-Headers
+content-type: application/json
+transfer-encoding: chunked
+date: Wed, 15 Apr 2026 20:56:23 GMT
+connection: close
+###
+POST http://localhost:8080/api/auth/register
+Content-Type: application/json
+
+{
+  "email": "test@gmail.com",
+  "password": "1234"
+}
+
+HTTP/1.1 200  - OK
+vary: Origin, Access-Control-Request-Method, Access-Control-Request-Headers
+content-type: application/json
+transfer-encoding: chunked
+date: Wed, 15 Apr 2026 20:59:37 GMT
+connection: close
+###
+POST http://localhost:8080/api/auth/register
+Content-Type: application/json
+
+{
+  "email": "test@gmail.com",
+  "password": "1234"
+}
+
+HTTP/1.1 200  - OK
+vary: Origin, Access-Control-Request-Method, Access-Control-Request-Headers
+content-type: application/json
+transfer-encoding: chunked
+date: Wed, 15 Apr 2026 21:00:19 GMT
+connection: close
+###
+POST http://localhost:8080/api/auth/register
+Content-Type: application/json
+
+{
+  "email": "test@gmail.com",
+  "password": "1234"
+}
+
+
+HTTP/1.1 200  - OK
+vary: Origin, Access-Control-Request-Method, Access-Control-Request-Headers
+content-type: application/json
+transfer-encoding: chunked
+date: Wed, 15 Apr 2026 21:11:54 GMT
+connection: close
+###
+http://localhost:8080/api/auth/login
