@@ -22,17 +22,17 @@ public class AuthController {
         return repo.save(user);
     }
 
-    @PostMapping("/login")
-    public String login(@RequestBody User user) {
+  @PostMapping("/login")
+public String login(@RequestBody User user) {
 
-        Optional<User> existingUser = repo.findByEmail(user.getEmail());
+    User existingUser = repo.findByEmail(user.getEmail()).orElse(null);
 
-        if (existingUser.isPresent() &&
-            existingUser.get().getPassword().equals(user.getPassword())) {
+    if (existingUser != null &&
+        existingUser.getPassword().equals(user.getPassword())) {
 
-            return "LOGIN SUCCESS";
-        }
-
-        return "LOGIN FAILED";
+        return "LOGIN SUCCESS";
     }
+
+    return "LOGIN FAILED";
+}
 }
