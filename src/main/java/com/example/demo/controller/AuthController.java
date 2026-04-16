@@ -4,6 +4,8 @@ import com.example.demo.entity.User;
 import com.example.demo.repository.UserRepository;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @RestController
 @RequestMapping("/api/auth")
 @CrossOrigin("*")
@@ -21,19 +23,16 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-public String login(@RequestBody User user) {
+    public String login(@RequestBody User user) {
 
-    User existingUser = repo.findAll().stream()
-        .filter(u -> u.getEmail().equals(user.getEmail())
-                  && u.getPassword().equals(user.getPassword()))
-        .findFirst()
-        .orElse(null);
+        Optional<User> existingUser = repo.findByEmail(user.getEmail());
 
-    if (existingUser != null) {
-        return "LOGIN SUCCESS";
-    } else {
+        if (existingUser.isPresent() &&
+            existingUser.get().getPassword().equals(user.getPassword())) {
+
+            return "LOGIN SUCCESS";
+        }
+
         return "LOGIN FAILED";
     }
 }
-}
-
