@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: connexion-financiere-backend
+    env: java
+    buildCommand: mvn clean install
+    startCommand: java -jar target/demo-0.0.1-SNAPSHOT.jar
+
+
+
+
+
