@@ -6,13 +6,11 @@ Content-Type: application/json
   "message": "Bonjour"
 }
 
-
-
-HTTP/1.1 200  - OK
+HTTP/1.1 404  - Not Found
 vary: Origin, Access-Control-Request-Method, Access-Control-Request-Headers
 content-type: application/json
 transfer-encoding: chunked
-date: Wed, 15 Apr 2026 20:56:23 GMT
+date: Thu, 16 Apr 2026 19:01:33 GMT
 connection: close
 ###
 POST http://localhost:8080/api/auth/register
@@ -23,11 +21,11 @@ Content-Type: application/json
   "password": "1234"
 }
 
-HTTP/1.1 200  - OK
+HTTP/1.1 404  - Not Found
 vary: Origin, Access-Control-Request-Method, Access-Control-Request-Headers
 content-type: application/json
 transfer-encoding: chunked
-date: Wed, 15 Apr 2026 20:59:37 GMT
+date: Thu, 16 Apr 2026 19:01:33 GMT
 connection: close
 ###
 POST http://localhost:8080/api/auth/register
@@ -38,11 +36,11 @@ Content-Type: application/json
   "password": "1234"
 }
 
-HTTP/1.1 200  - OK
+HTTP/1.1 404  - Not Found
 vary: Origin, Access-Control-Request-Method, Access-Control-Request-Headers
 content-type: application/json
 transfer-encoding: chunked
-date: Wed, 15 Apr 2026 21:00:19 GMT
+date: Thu, 16 Apr 2026 19:01:33 GMT
 connection: close
 ###
 POST http://localhost:8080/api/auth/register
@@ -53,12 +51,187 @@ Content-Type: application/json
   "password": "1234"
 }
 
-
-HTTP/1.1 200  - OK
+HTTP/1.1 404  - Not Found
 vary: Origin, Access-Control-Request-Method, Access-Control-Request-Headers
 content-type: application/json
 transfer-encoding: chunked
-date: Wed, 15 Apr 2026 21:11:54 GMT
+date: Thu, 16 Apr 2026 19:01:33 GMT
 connection: close
 ###
 http://localhost:8080/api/auth/login
+
+HTTP/1.1 404  - Not Found
+vary: Origin, Access-Control-Request-Method, Access-Control-Request-Headers
+content-type: application/json
+transfer-encoding: chunked
+date: Thu, 16 Apr 2026 19:01:34 GMT
+connection: close
+###
+POST http://localhost:8080/api/submissions
+
+HTTP/1.1 404  - Not Found
+vary: Origin, Access-Control-Request-Method, Access-Control-Request-Headers
+content-type: application/json
+transfer-encoding: chunked
+date: Thu, 16 Apr 2026 19:01:34 GMT
+connection: close
+###
+POST http://localhost:8080/api/submissions
+{
+  "name": "Delphine",
+  "email": "test@email.com"
+}
+
+HTTP/1.1 404  - Not Found
+vary: Origin, Access-Control-Request-Method, Access-Control-Request-Headers
+content-type: application/json
+transfer-encoding: chunked
+date: Thu, 16 Apr 2026 19:01:34 GMT
+connection: close
+###
+GET http://localhost:8080/api/submissions
+
+HTTP/1.1 404  - Not Found
+vary: Origin, Access-Control-Request-Method, Access-Control-Request-Headers
+content-type: application/json
+transfer-encoding: chunked
+date: Thu, 16 Apr 2026 19:01:34 GMT
+connection: close
+###
+POST http://localhost:8080/api/auth/login
+
+
+
+{
+  "email": "test@test.com",
+  "password": "1234"
+}
+
+HTTP/1.1 404  - Not Found
+vary: Origin, Access-Control-Request-Method, Access-Control-Request-Headers
+content-type: application/json
+transfer-encoding: chunked
+date: Thu, 16 Apr 2026 19:01:34 GMT
+connection: close
+###
+curl -X POST http://localhost:8080/api/auth/register \
+     -H "Content-Type: application/json" \
+     -d "{\"name\":\"Test User\", \"email\":\"test@example.com\", \"password\":\"123456\"}"
+###
+curl -X POST http://localhost:8080/api/auth/register \
+     -H "Content-Type: application/json" \
+     -d "{\"name\":\"Test User\", \"email\":\"test@example.com\", \"password\":\"123456\"}"
+###
+http://localhost:8080/api/auth/signup
+
+HTTP/1.1 404  - Not Found
+vary: Origin, Access-Control-Request-Method, Access-Control-Request-Headers
+content-type: application/json
+transfer-encoding: chunked
+date: Thu, 16 Apr 2026 19:01:34 GMT
+connection: close
+###
+http://localhost:8080/api/auth/signup 
+Content-Type: application/json
+{
+    "name": "test_user",
+    "email": "test@dessein.com",
+    "password": "password123"
+}
+
+HTTP/1.1 404  - Not Found
+vary: Origin, Access-Control-Request-Method, Access-Control-Request-Headers
+content-type: application/json
+transfer-encoding: chunked
+date: Thu, 16 Apr 2026 19:01:35 GMT
+connection: close
+###
+{
+    "name": "test_user",
+    "email": "test@dessein.com",
+    "password": "password123"
+}
+###
+http://localhost:8080/api/auth/register
+Content-Type: application/json
+
+{
+    "name": "test_user",
+    "email": "test@dessein.com",
+    "password": "password123"
+}
+
+HTTP/1.1 404  - Not Found
+vary: Origin, Access-Control-Request-Method, Access-Control-Request-Headers
+content-type: application/json
+transfer-encoding: chunked
+date: Thu, 16 Apr 2026 19:01:35 GMT
+connection: close
+###
+
+ http://localhost:8080/api/auth/signup
+
+-Method GET
+-ContentType "application/json; charset=utf-8" 
+-Body '{"name":"Jean", "email":"jean@test.com", "password":"password123"}'
+
+HTTP/1.1 404  - Not Found
+vary: Origin, Access-Control-Request-Method, Access-Control-Request-Headers
+content-type: application/json
+transfer-encoding: chunked
+date: Thu, 16 Apr 2026 19:01:35 GMT
+connection: close
+###
+$body = @{
+    name     = "Jean"
+    email    = "jean@test.com"
+    password = "password123"
+} | ConvertTo-Json
+
+Invoke-RestMethod -Uri "http://localhost:8080/api/auth/register" -Method Post -ContentType "application/json" -Body $body
+###
+http://localhost:8080/api/auth/register
+
+HTTP/1.1 404  - Not Found
+vary: Origin, Access-Control-Request-Method, Access-Control-Request-Headers
+content-type: application/json
+transfer-encoding: chunked
+date: Thu, 16 Apr 2026 19:01:35 GMT
+connection: close
+###
+http://localhost:8080/api/auth/register
+
+
+Content-Type: application/json
+{
+    "name": "Delphine",
+    "email": "delphine@dessein.com",
+    "password": "password123"
+}
+
+HTTP/1.1 404  - Not Found
+vary: Origin, Access-Control-Request-Method, Access-Control-Request-Headers
+content-type: application/json
+transfer-encoding: chunked
+date: Thu, 16 Apr 2026 19:01:48 GMT
+connection: close
+###
+http://localhost:8080/api/auth/register
+
+Method POST
+Content-Type: application/json; charset=utf-8
+{
+   "name": "Delphine",
+    "email": "delphine.succes@dessein.com",
+    "password": "MaLiberté2026"
+
+}
+### Test d'inscription
+POST http://localhost:8080/api/auth/register
+Content-Type: application/json
+
+{
+    "name": "Delphine",
+    "email": "delphine.succes@dessein.com",
+    "password": "MaLiberté2026"
+}
