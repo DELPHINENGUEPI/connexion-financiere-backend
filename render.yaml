@@ -4,4 +4,3 @@ services:
     env: java
     buildCommand: mvn clean install
     startCommand: java -jar target/demo-0.0.1-SNAPSHOT.jar
-    port: 8080
